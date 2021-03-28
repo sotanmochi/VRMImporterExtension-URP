@@ -1,0 +1,11 @@
+{
+    "name": "jp.sotanmochi.univrm-extension.importer.samples",
+    "version": "1.0.0",
+    "displayName": "VRM.Extension.Importer.Samples",
+    "description": "Samples for VRM.Extension.Importer",
+    "license": "MIT",
+    "unity": "2019.4",
+    "dependencies": {
+        "jp.sotanmochi.univrm-extension.importer": "1.0.0"
+    }
+}
