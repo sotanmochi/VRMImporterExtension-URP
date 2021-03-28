@@ -1,0 +1,11 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/VRMRuntimeImporter-URP-2019.4/Scenes/VRMRuntimeImport.unity
+    guid: 21c8cc2e0c68a71469cac2c2ef425236
+  m_configObjects: {}

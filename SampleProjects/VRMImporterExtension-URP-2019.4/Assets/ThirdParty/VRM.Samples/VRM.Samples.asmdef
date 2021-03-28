@@ -1,0 +1,16 @@
+{
+    "name": "VRM.Samples",
+    "references": [
+        "VRM",
+        "UniHumanoid",
+        "UniGLTF"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
