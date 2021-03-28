@@ -1,0 +1,13 @@
+{
+    "name": "jp.sotanmochi.univrm-extension.importer",
+    "version": "1.0.0",
+    "displayName": "VRM.Extension.Importer",
+    "description": "VRM Importer Extension for Unity URP",
+    "license": "MIT",
+    "unity": "2019.4",
+    "dependencies": {
+        "com.vrmc.vrmshaders": "0.66.0",
+        "com.vrmc.unigltf": "0.66.0",
+        "com.vrmc.univrm": "0.66.0"
+    }
+}
