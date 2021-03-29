@@ -1,4 +1,7 @@
-# VRM Importer Extension for Unity URP
+# VRM Importer Extension Samples
+
+## Tested Environment
+- Unity 2019.4.20f1
 
 ## Dependencies
 - [VRM Importer Extension](https://github.com/sotanmochi/VRMImporterExtension-URP/tree/main/VRM.Extension.Importer)
@@ -11,6 +14,9 @@ You need to import the following assets.
 - [Universal Toon Shader 2.2.1](https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project/releases/tag/urp-2.2.1)
 
 - [RealToon Shader](https://assetstore.unity.com/packages/vfx/shaders/realtoon-65518)
+
+- UC01_001_UniteInTheSky -WA-.fbx  
+  This asset is included in [Unity-Chan KAGURA Style(URP)](https://unity-chan.com/download/releaseNote.php?id=kagura)
 
 このプロジェクトには、以下のアセットが含まれています。  
 The following assets are included in this project.

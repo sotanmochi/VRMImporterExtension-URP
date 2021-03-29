@@ -32,12 +32,15 @@ namespace VRM.Extension.Samples
                     break;
             }
 
+            var animatorControllerProvider = GameObject.FindObjectOfType<AnimatorControllerProvider>();
+
             // View
             var importEventTrigger = ApplicationInitializer.FindObjectOfInterface<IVRMImportEventTrigger>();
+            var shaderSelectEventTrigger = ApplicationInitializer.FindObjectOfInterface<IShaderSelectEventTrigger>();
 
             // Presenter
             var importPresenter = GameObject.FindObjectOfType<VRMImportPresenter>();
-            importPresenter.Construct(importEventTrigger, vrmRuntimeImporter);
+            importPresenter.Construct(importEventTrigger, vrmRuntimeImporter, animatorControllerProvider, shaderSelectEventTrigger);
         }
     }
 }
