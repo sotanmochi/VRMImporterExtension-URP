@@ -9,21 +9,20 @@ namespace VRM.Extension.Samples
     {
         public event Action<GameObject> OnLoaded;
 
-        private VRMImporterContext _Context;
+        private Type _ContextType;
 
-        void OnDestroy()
+        public void Construct(Type contextType)
         {
-            _Context?.Dispose();
-        }
-
-        public void Construct(VRMImporterContext context)
-        {
-            _Context = context;
+            if (contextType.IsSubclassOf(typeof(VRMImporterContext)))
+            {
+                _ContextType = contextType;
+                Debug.Log("Importer Context Type: " + contextType);
+            }
         }
 
         public async Task<GameObject> LoadAsync(string filePath)
         {
-            if (_Context == null)
+            if (_ContextType == null)
             {
                 Debug.Log("VRMRumtimeImporter has not initialized.");
                 return null;
@@ -38,15 +37,17 @@ namespace VRM.Extension.Samples
                     await stream.ReadAsync(bytes, 0, (int)stream.Length);
                 }
 
-                _Context.ParseGlb(bytes);
-                await _Context.LoadAsyncTask();
-                _Context.ShowMeshes();
+                VRMImporterContext context = (VRMImporterContext)Activator.CreateInstance(_ContextType);
 
-                var meta = _Context.Root.GetComponent<VRMMeta>().Meta;
-                _Context.Root.name = meta.Title;
+                context.ParseGlb(bytes);
+                await context.LoadAsyncTask();
+                context.ShowMeshes();
 
-                OnLoaded?.Invoke(_Context.Root);
-                return _Context.Root;
+                var meta = context.Root.GetComponent<VRMMeta>().Meta;
+                context.Root.name = meta.Title;
+
+                OnLoaded?.Invoke(context.Root);
+                return context.Root;
             }
             else
             {

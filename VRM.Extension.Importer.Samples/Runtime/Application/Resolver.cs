@@ -19,16 +19,16 @@ namespace VRM.Extension.Samples
             switch(_ShaderType)
             {
                 case ShaderType.UniversalToon:
-                    vrmRuntimeImporter.Construct(new VRMImporterContext_UniversalToon());
+                    vrmRuntimeImporter.Construct(typeof(VRMImporterContext_UniversalToon));
                     break;
                 case ShaderType.RealToon:
-                    vrmRuntimeImporter.Construct(new VRMImporterContext_RealToon());
+                    vrmRuntimeImporter.Construct(typeof(VRMImporterContext_RealToon));
                     break;
                 case ShaderType.NiloToon:
-                    vrmRuntimeImporter.Construct(new VRMImporterContext_NiloToon());
+                    vrmRuntimeImporter.Construct(typeof(VRMImporterContext_NiloToon));
                     break;
                 default:
-                    vrmRuntimeImporter.Construct(new VRMImporterContext_UniversalToon());
+                    vrmRuntimeImporter.Construct(typeof(VRMImporterContext_UniversalToon));
                     break;
             }
 
