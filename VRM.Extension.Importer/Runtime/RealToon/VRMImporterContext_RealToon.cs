@@ -6,7 +6,12 @@ namespace VRM.Extension
     {
         bool m_useLiteShaders;
 
-        public VRMImporterContext_RealToon(bool useLiteShaders = false)
+        public VRMImporterContext_RealToon()
+        {
+            m_useLiteShaders = false;
+        }
+
+        public VRMImporterContext_RealToon(bool useLiteShaders)
         {
             m_useLiteShaders = useLiteShaders;
         }
