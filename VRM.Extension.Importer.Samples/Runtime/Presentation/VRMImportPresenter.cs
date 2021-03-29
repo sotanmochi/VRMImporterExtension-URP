@@ -17,15 +17,15 @@ namespace VRM.Extension.Samples
         {
             _ImportEventTrigger.OnTriggerVRMImportEvent += async(filePath) =>
             {
-                Debug.Log("OnTrigger@Presenter: " + filePath);
+                // Debug.Log("OnTrigger@Presenter: " + filePath);
                 var vrm = await _RuntimeImporter.LoadAsync(filePath);
                 vrm.transform.SetParent(_RuntimeImporter.transform);
-                Debug.Log("OnLoaded");
+                // Debug.Log("OnLoaded");
             };
 
             _RuntimeImporter.OnLoaded += (vrm) =>
             {
-                Debug.Log("OnLoaded callback");
+                // Debug.Log("OnLoaded callback");
                 // vrm.transform.SetParent(_RuntimeImporter.transform);
             };
         }
