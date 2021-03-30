@@ -62,7 +62,11 @@ namespace VRM.Extension
             var shaderCategory = (currentRenderPipeline == RenderPipelineType.BuiltIn && m_useLiteShaders) ? "Lite" : "Default";
             var shaderPath = $"{renderPipelinePath}RealToon/Version 5/{shaderCategory}";
 
-            if (currentRenderPipeline != RenderPipelineType.HDRP)
+            if (currentRenderPipeline == RenderPipelineType.URP)
+            {
+                shaderPath = $"{shaderPath}/Default";
+            }
+            else if (currentRenderPipeline != RenderPipelineType.HDRP)
             {
                 // [MToon Rendering Types/BlendModes]
                 // Opaque = 0, Cutout = 1, Transparent = 2, TransparentWithZWrite = 3
@@ -138,19 +142,14 @@ namespace VRM.Extension
 
             // CullMode: Off = 0, Front = 1, Back = 2
             var cullMode = (int) vrmMaterial.GetFloat(_CullMode);
-            if (cullMode == 2)
-            {
-                material.SetInt(_DoubleSided, 2); // Double Sided: OFF
-            }
-            else
-            {
-                material.SetInt(_DoubleSided, 0); // Double Sided: ON
-            }
+            material.SetInt(_Culling, cullMode);
 
             // BlendMode: Opaque = 0, Cutout = 1, Transparent = 2, TransparentWithZWrite = 3
             var blendMode = (int) vrmMaterial.GetFloat(_BlendMode);
-            if (blendMode == 1)
+            if (blendMode != 0)
             {
+                material.EnableKeyword(_EnableTransmodeKeyword);
+                material.SetFloat(_EnableTransmode, 1);
                 material.EnableKeyword(_EnableCutoutKeyword);
                 material.SetFloat(_EnableCutout, 1);
             }
@@ -178,7 +177,7 @@ namespace VRM.Extension
         private static readonly int _OutlineWidthTexture = Shader.PropertyToID("_OutlineWidthTexture");
 
         // RealToon shader properties
-        private static readonly int _DoubleSided = Shader.PropertyToID("_DoubleSided");
+        private static readonly int _Culling = Shader.PropertyToID("_Culling");
         private static readonly int _MainColor = Shader.PropertyToID("_MainColor");
         private static readonly int _AlphaCutout = Shader.PropertyToID("_Cutout");
         private static readonly int _OverallShadowColor = Shader.PropertyToID("_OverallShadowColor");
@@ -193,6 +192,8 @@ namespace VRM.Extension
         private static readonly int _RimLightColor = Shader.PropertyToID("_RimLightColor");
         private static readonly int _OutlitWidthControl = Shader.PropertyToID("_OutlitWidthControl");
 
+        private static readonly string _EnableTransmodeKeyword = "N_F_TRANS_ON";
+        private static readonly int _EnableTransmode = Shader.PropertyToID("_TRANSMODE");
         private static readonly string _EnableCutoutKeyword = "N_F_CO_ON";
         private static readonly int _EnableCutout = Shader.PropertyToID("_N_F_CO");
         private static readonly string _EnableOutlineKeyword = "N_F_O_ON";

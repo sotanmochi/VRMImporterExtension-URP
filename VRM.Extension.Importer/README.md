@@ -3,7 +3,7 @@
 ## Available Shaders
 - [Universal Toon Shader 2.2.1](https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project/releases/tag/urp-2.2.1)
 
-- [RealToon Shader](https://assetstore.unity.com/packages/vfx/shaders/realtoon-65518)
+- [RealToon Shader 5.0.8](https://assetstore.unity.com/packages/vfx/shaders/realtoon-65518)
 
 - [NiloToonURP Shader](https://github.com/ColinLeung-NiloCat/UnityURPToonLitShaderExample)  
 <span style="color: orange;">
