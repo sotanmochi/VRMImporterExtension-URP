@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RealToonURP
+  m_Shaders:
+  - first: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
+    second:
+      variants:
+      - keywords: N_F_CO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON
+        passType: 0
+      - keywords: FOG_LINEAR N_F_CO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON
+        passType: 0
+      - keywords: INSTANCING_ON N_F_CO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON
+        passType: 0
+      - keywords: N_F_CO_ON N_F_DNO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON
+        passType: 0
+      - keywords: INSTANCING_ON N_F_CO_ON N_F_DNO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON
+        passType: 0
+      - keywords: N_F_CO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON N_F_UVCAND_ON
+        passType: 0
+      - keywords: FOG_LINEAR N_F_CO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON N_F_UVCAND_ON
+        passType: 0
+      - keywords: INSTANCING_ON N_F_CO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON N_F_UVCAND_ON
+        passType: 0
+      - keywords: N_F_CO_ON N_F_DNO_ON N_F_EAL_ON N_F_O_ON N_F_TRANS_ON N_F_UVCAND_ON
+        passType: 0
