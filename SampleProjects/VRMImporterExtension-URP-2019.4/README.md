@@ -18,6 +18,9 @@ You need to import the following assets.
 - UC01_001_UniteInTheSky -WA-.fbx  
   This asset is included in [Unity-Chan KAGURA Style(URP)](https://unity-chan.com/download/releaseNote.php?id=kagura)
 
+- UnityLogo VFX (UnityLogo.vfx, UnityLogo64.asset and VolumeTiling03.vf)  
+  This asset is included in [Visual Effect Graph - Samples](https://github.com/Unity-Technologies/VisualEffectGraph-Samples/tree/master/Assets/Samples/UnityLogo)
+
 このプロジェクトには、以下のアセットが含まれています。  
 The following assets are included in this project.
 
