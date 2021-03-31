@@ -2,6 +2,7 @@
 
 ## Tested Environment
 - Unity 2019.4.20f1
+- URP 7.5.2
 
 ## Dependencies
 - [VRM Importer Extension](https://github.com/sotanmochi/VRMImporterExtension-URP/tree/main/VRM.Extension.Importer)

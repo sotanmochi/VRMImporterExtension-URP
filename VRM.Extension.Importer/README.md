@@ -15,6 +15,17 @@ The full version of NiloToonUPR shader is not yet released.
 
 ## Tested Environment
 - Unity 2019.4.20f1
+- URP 7.5.2
+
+## How to Install
+```
+// manifest.json 抜粋
+{
+  "dependencies": {
+    "jp.sotanmochi.univrm-extension.importer": "https://github.com/sotanmochi/VRMImporterExtension-URP.git?path=VRM.Extension.Importer",
+  }
+}
+```
 
 ## License
 このライブラリは、MIT Licenseでライセンスされています。   
