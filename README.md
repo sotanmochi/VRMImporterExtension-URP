@@ -22,7 +22,7 @@ The full version of NiloToonUPR shader is not yet released.
 // manifest.json 抜粋
 {
   "dependencies": {
-    "jp.sotanmochi.univrm-extension.importer": "https://github.com/sotanmochi/VRMImporterExtension-URP.git?path=VRM.Extension.Importer",
+    "jp.sotanmochi.univrm-extension.importer": "https://github.com/sotanmochi/VRMImporterExtension-URP.git?path=VRM.Extension.Importer#v1.0.1",
   }
 }
 ```
