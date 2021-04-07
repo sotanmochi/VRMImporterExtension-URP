@@ -64,24 +64,16 @@ namespace VRM.Extension
 
             if (currentRenderPipeline == RenderPipelineType.URP)
             {
+                // Universal Render Pipeline/RealToon/Version 5/Default/Default
                 shaderPath = $"{shaderPath}/Default";
             }
-            else if (currentRenderPipeline != RenderPipelineType.HDRP)
+            else if (currentRenderPipeline == RenderPipelineType.HDRP)
             {
-                // [MToon Rendering Types/BlendModes]
-                // Opaque = 0, Cutout = 1, Transparent = 2, TransparentWithZWrite = 3
-                var renderingTypeBlendMode = (int) vrmMaterial.GetFloat(_BlendMode);
-                if (renderingTypeBlendMode == 2 || renderingTypeBlendMode == 3)
-                {
-                    shaderPath = $"{shaderPath}/Fade Transparency";
-                }
-                else
-                {
-                    shaderPath = $"{shaderPath}/Default";
-                }
+                // HDRP/RealToon/Version 5/Default
             }
 
-            return CreateRealToonMaterial(vrmMaterial, shaderPath);
+
+            return CreateRealToonMaterial(vrmMaterial, shaderPath, currentRenderPipeline);
         }
 
         /// <summary>
@@ -90,7 +82,7 @@ namespace VRM.Extension
         /// <param name="vrmMaterial"></param>
         /// <param name="shaderPath"></param>
         /// <returns></returns>
-        public Material CreateRealToonMaterial(Material vrmMaterial, string shaderPath)
+        public Material CreateRealToonMaterial(Material vrmMaterial, string shaderPath, RenderPipelineType renderPipeline)
         {
             var material = new Material(Shader.Find(shaderPath));
             material.name = vrmMaterial.name;
@@ -152,6 +144,14 @@ namespace VRM.Extension
                 material.SetFloat(_EnableTransmode, 1);
                 material.EnableKeyword(_EnableCutoutKeyword);
                 material.SetFloat(_EnableCutout, 1);
+                material.renderQueue = 2450;
+                material.SetOverrideTag("RenderType", "TransparentCutout");
+            }
+ 
+            if (renderPipeline == RenderPipelineType.HDRP)
+            {
+                material.EnableKeyword(_EnableAreaLightKeyword);
+                material.SetFloat(_EnableAreaLight, 1);
             }
 
             return material;
@@ -208,5 +208,9 @@ namespace VRM.Extension
         private static readonly int _EnableGlossTexture = Shader.PropertyToID("_N_F_GLOT");
         private static readonly string _EnableRimLightKeyword = "N_F_RL_ON";
         private static readonly int _EnableRimLight = Shader.PropertyToID("_N_F_RL");
+
+        // HDRP Only
+        private static readonly string _EnableAreaLightKeyword = "N_F_AL_ON";
+        private static readonly int _EnableAreaLight = Shader.PropertyToID("_N_F_AL");
     }
 }
